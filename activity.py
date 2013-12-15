@@ -7,6 +7,8 @@ class exampleActivity(activity.Activity):
 
 """
 
+import pygame
+from pygame import transform
 
 # Sugar Imports
 from sugar3.activity.activity import Activity
@@ -86,6 +88,9 @@ class Example(Activity):
         self.show_all()
 
     def greeter(self, button, entry, entry2, output):
+        
+        button = pygame.image.load('activity/art/RainyCloud.svg')
+        
         if len(entry.get_text()) > 0:
             output.set_text("WEATHER TODAY IS: \n" + entry.get_text() + "\n" + entry2.get_text())
         else:
