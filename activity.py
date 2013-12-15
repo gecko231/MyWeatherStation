@@ -6,15 +6,12 @@
 class exampleActivity(activity.Activity):
 
 """
-
-import pygame
-from pygame import transform
-
 # Sugar Imports
 from sugar3.activity.activity import Activity
 from sugar3.activity.widgets import StopButton
 from sugar3.activity.widgets import ActivityButton
 
+from Tkinter import *
 
 # Gtk Import
 from gi.repository import Gtk
@@ -23,7 +20,7 @@ from gettext import gettext as _
 class Example(Activity):
     def __init__(self, sugar_handle):
         Activity.__init__(self, sugar_handle)
-
+        
         # Create a Toolbar
         toolbar = Gtk.Toolbar()
 
@@ -89,14 +86,16 @@ class Example(Activity):
 
     def greeter(self, button, entry, entry2, output):
         
-        button = pygame.image.load('activity/art/RainyCloud.svg')
-        
         if len(entry.get_text()) > 0:
             output.set_text("WEATHER TODAY IS: \n" + entry.get_text() + "\n" + entry2.get_text())
         else:
             output.set_text("Enter the weather.")
 
     def showWeather(self, button, state, entry, entry2, output):
+        
+        rainyImage = PhotoImage(file="activity/art/RainyCloud.svg")
+        button.config(image=rainyImage,width="10",height="10")
+        
         output.set_text("Weather State is: " + state + ". " + "Temperature is " + entry.get_text() + ". Humidity is " + entry2.get_text())
 
     def emptyout(self, entry, entry2, event, output):
