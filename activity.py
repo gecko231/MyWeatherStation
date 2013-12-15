@@ -93,7 +93,7 @@ class Example(Activity):
 
     def showWeather(self, button, state, entry, entry2, output):
         
-        image = Image.open("activity/art/RainyCloud.svg")
+        image = Image.open("activity/art/HotSun.png")
         image.show()
         
         output.set_text("Weather State is: " + state + ". " + "Temperature is " + entry.get_text() + ". Humidity is " + entry2.get_text())
