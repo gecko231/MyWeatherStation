@@ -11,7 +11,7 @@ from sugar3.activity.activity import Activity
 from sugar3.activity.widgets import StopButton
 from sugar3.activity.widgets import ActivityButton
 
-from Tkinter import *
+from PIL import Image
 
 # Gtk Import
 from gi.repository import Gtk
@@ -93,8 +93,8 @@ class Example(Activity):
 
     def showWeather(self, button, state, entry, entry2, output):
         
-        rainyImage = PhotoImage(file="activity/art/RainyCloud.svg")
-        button.config(image=rainyImage,width="10",height="10")
+        image = Image.open("activity/art/RainyCloud.svg")
+        image.show()
         
         output.set_text("Weather State is: " + state + ". " + "Temperature is " + entry.get_text() + ". Humidity is " + entry2.get_text())
 
